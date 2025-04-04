@@ -1,0 +1,1 @@
+from .prime import checkprime,getHighestPrime,getAllPrimes
