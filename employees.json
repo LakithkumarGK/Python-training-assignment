@@ -1,0 +1,18 @@
+[
+          {
+                    "name": "Lakith",
+                    "age": 35,
+                    "gender": "Male",
+                    "emp_id": "E101",
+                    "department": "HR",
+                    "salary": 45000.0
+          },
+          {
+                    "name": "Kiran",
+                    "age": 42,
+                    "gender": "Male",
+                    "emp_id": "E103",
+                    "department": "HR",
+                    "salary": 48000.0
+          }
+]
