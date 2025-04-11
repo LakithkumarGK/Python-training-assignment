@@ -1,0 +1,32 @@
+[
+    {
+        "student_id": 1,
+        "name": "lakith kumar gk",
+        "age": "25",
+        "grade": "a"
+    },
+    {
+        "student_id": 2,
+        "name": "kirthi",
+        "age": "25",
+        "grade": "b"
+    },
+    {
+        "student_id": 3,
+        "name": "",
+        "age": "",
+        "grade": ""
+    },
+    {
+        "student_id": 4,
+        "name": "vijay",
+        "age": "23",
+        "grade": "s"
+    },
+    {
+        "student_id": 4,
+        "name": "wsjx",
+        "age": "23",
+        "grade": "sx"
+    }
+]
