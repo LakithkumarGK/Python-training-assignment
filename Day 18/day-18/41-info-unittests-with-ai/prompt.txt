@@ -1,0 +1,13 @@
+You're a Python testing expert. Generate comprehensive unit test cases 
+using the unittest module for the following Python class.
+
+- Ensure tests cover normal usage, edge cases, and invalid inputs.
+- Test each method individually.
+- Use assertions to verify correctness.
+- Do not test CLI or I/O code. Focus only on the logic layer.
+
+Here is the class to test:
+
+<INSERT CODE SNIPPET HERE>
+
+Now generate a complete file of unit tests.

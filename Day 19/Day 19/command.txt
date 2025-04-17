@@ -1,0 +1,14 @@
+Step 1:
+    python -m venv venv (Virtual machine)
+
+Step 2:
+    source venv/Scripts/activate
+
+Step 3:
+    pip install django
+
+Step 4:
+    django-admin startproject a1
+
+Step 5:
+    python manage.py runserver

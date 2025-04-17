@@ -1,0 +1,41 @@
+PS C:\mindful-ai\ust-global-python\ust-python-2025-main\day-18\39-sc-python-debugger> python .\39-sc-grade-calculator-debug.py
+> c:\mindful-ai\ust-global-python\ust-python-2025-main\day-18\39-sc-python-debugger\39-sc-grade-calculator-debug.py(11)determine_grade()
+-> if avg >= 90:
+(Pdb) p avg
+85.0
+(Pdb) n
+> c:\mindful-ai\ust-global-python\ust-python-2025-main\day-18\39-sc-python-debugger\39-sc-grade-calculator-debug.py(13)determine_grade()
+-> elif avg >= 80:
+(Pdb) n
+> c:\mindful-ai\ust-global-python\ust-python-2025-main\day-18\39-sc-python-debugger\39-sc-grade-calculator-debug.py(14)determine_grade()
+-> return "B"
+(Pdb) n
+--Return--
+> c:\mindful-ai\ust-global-python\ust-python-2025-main\day-18\39-sc-python-debugger\39-sc-grade-calculator-debug.py(14)determine_grade()->'B'
+-> return "B"
+(Pdb) l
+  9     def determine_grade(avg):
+ 10         breakpoint()      # <- the code execution stops here
+ 11         if avg >= 90:
+ 12             return "A"
+ 13         elif avg >= 80:
+ 14  ->         return "B"
+ 15         elif avg >= 70:
+ 16             return "C"
+ 17         elif avg >= 60:
+ 18             return "D"
+ 19         else:
+(Pdb) s
+> c:\mindful-ai\ust-global-python\ust-python-2025-main\day-18\39-sc-python-debugger\39-sc-grade-calculator-debug.py(26)<module>()
+-> print(f"Average: {average}")
+(Pdb) s
+Average: 85.0
+> c:\mindful-ai\ust-global-python\ust-python-2025-main\day-18\39-sc-python-debugger\39-sc-grade-calculator-debug.py(27)<module>()
+-> print(f"Final Grade: {final_grade}")
+(Pdb) s
+Final Grade: B
+--Return--
+> c:\mindful-ai\ust-global-python\ust-python-2025-main\day-18\39-sc-python-debugger\39-sc-grade-calculator-debug.py(27)<module>()->None
+-> print(f"Final Grade: {final_grade}")
+(Pdb) s
+PS C:\mindful-ai\ust-global-python\ust-python-2025-main\day-18\39-sc-python-debugger>

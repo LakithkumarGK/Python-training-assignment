@@ -1,0 +1,20 @@
+Reference: https://docs.python.org/3/library/pdb.html
+
+pdb is Python’s built-in interactive source code debugger. It allows you to pause your program, inspect variables, step through code line by line, and troubleshoot issues.
+
+Why use pdb?
+    Step through code line by line
+    Set breakpoints
+    Inspect variable values during execution
+    Change variable values on the fly (if needed)
+    Continue execution or jump to specific lines
+
+Commands
+
+l	List source code around the current line
+n	Next line
+s	Step into function
+c	Continue execution
+b	Set breakpoint
+p	Print a variable
+q	Quit debugging

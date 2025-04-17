@@ -1,0 +1,23 @@
+Bob developed a search game where he stores N special sequences in a database. 
+The sequences are stored in an array of strings called "games" and each sequence is of size M. Afterwards, Bob asks a bot Q queries. When a query is made, the bot searches the database for any previously stored games.
+
+A special sequence is provided in each query. The special sequence 
+Is written as a1,a2,ak,ak+1,am where a1, a2,..., ak is the Initial sequence and ak+1.... am 
+is -1. All the -1 must be ignored when processing the input.
+ 
+The bot's task is to find the number of games stored in the database that have the provided 
+sequence as a prefix.
+ 
+Function description
+Complete the BobnBot function. This function takes the following 5 parameters 
+and returns an array of integers:
+ 
+N. Represents the count of sequences
+ 
+M. Represents the length of the sequence
+ 
+games. Represents a 2D array containing all sequences
+ 
+Q. Represents the count of queries
+ 
+queries. Represents a 2D array containing the query sequences
