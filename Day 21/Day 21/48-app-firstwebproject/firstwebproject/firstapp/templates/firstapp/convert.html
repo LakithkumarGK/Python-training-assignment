@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+</head>
+<body>
+    <h1>Currency Converter (INR -> USD)</h1>
+    <form method="POST" action="{% url 'converter' %}">
+        {% csrf_token %}
+        <label for="amount">Amount:</label>
+        <input type="text" id="amount" name="amount" required><br><br>
+
+        <label for="from_currency">From Currency:</label>
+        <select name="from_currency" id="from_currency" required>
+            <option value="INR">INR</option>
+            <option value="USD">USD</option>
+        </select><br><br>
+
+        <label for="to_currency">To Currency:</label>
+        <select name="to_currency" id="to_currency" required>
+            <option value="INR">INR</option>
+            <option value="USD">USD</option>
+        </select><br><br>
+
+        <button type="submit">Convert</button>
+    </form>
+
+    {% if converted_amount %}
+        <h3>Converted Amount: {{ converted_amount }}</h3>
+    {% endif %}
+</body>
+</html>

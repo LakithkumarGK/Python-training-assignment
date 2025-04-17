@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        #timer {
+            font-size: 40px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        #startButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Countdown Timer</h1>
+    
+    <!-- Display the timer -->
+    <div id="timer">00:00</div>
+    
+    <br><br>
+    
+    <!-- Start button to begin countdown -->
+    <button id="startButton" onclick="startTimer()">Start Timer</button>
+
+    <script>
+        let countdown;
+        let minutes = 0;  // Set the initial minutes for the countdown
+        let seconds = 30; // Set the initial seconds for the countdown
+
+        // Function to format the time as MM:SS
+        function formatTime(mins, secs) {
+            if (secs < 10) {
+                secs = '0' + secs;
+            }
+            return mins + ':' + secs;
+        }
+
+        // Timer function
+        function startTimer() {
+            // Disable the button after starting the timer
+            document.getElementById('startButton').disabled = true;
+
+            // Update the timer every second
+            countdown = setInterval(function() {
+                if (seconds == 0 && minutes == 0) {
+                    clearInterval(countdown);
+                    alert("Time's up!");
+                    return;
+                }
+
+                if (seconds == 0) {
+                    minutes--;
+                    seconds = 59;
+                } else {
+                    seconds--;
+                }
+
+                // Display the updated time on the page
+                document.getElementById('timer').textContent = formatTime(minutes, seconds);
+            }, 1000);
+        }
+    </script>
+
+</body>
+</html>

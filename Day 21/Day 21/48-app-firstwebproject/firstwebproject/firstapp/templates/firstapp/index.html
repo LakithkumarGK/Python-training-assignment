@@ -1,0 +1,19 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'firstapp/style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="color:red">Welcome to Django!</h1>
+    <h1>Name: {{ name }}, {{ age }} </h1> <!--  a variable called name is injected here from the view -->
+    <h1 style="color:cadetblue">{{ dept }}</h1>
+
+    <img src="{% static 'firstapp\sonicboom.jpg' %}" alt="My Image">
+</body>
+</html>
+ 

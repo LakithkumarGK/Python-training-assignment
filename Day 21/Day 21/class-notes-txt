@@ -1,0 +1,132 @@
+-----------------------------------------------------------------------
+                                TEMPLATES
+-----------------------------------------------------------------------
+
+Exercise 1 - Using if else in templates (customize HTML content at the time of response)
+----------------------------------------------------------------------------------------------
+Assemble the following in the firstapp ->
+
+age_check.html ->
+
+    <h1>Hello, {{ name }}, {{ age }}</h1>
+
+    {% if age|add:'0' >= 18 %}
+        <h1>You are an adult</h1>
+    {% else %}
+        <h1>You are a minor</h1>
+    {% endif %}
+
+views.py ->
+
+def age_check(request):
+    context = {
+        'name' : 'Anil',
+        'age'  : str(random.randint(1, 30))
+    }
+    return render(request, 'firstapp/age_check.html', context)
+
+urls.py ->
+
+path('check', views.age_check, name='check') # 127.0.0.1:8000/check
+
+
+
+Notes on Filters:
+
+add	
+length	
+lower	
+upper
+date	
+default	
+safe	
+truncatechars
+
+<p>Welcome, {{ name|default:"Guest" }}</p>
+<p>Your email is: {{ email|default_if_none:"Not provided" }}</p>
+<p>You selected {{ fruits|length }} fruit(s).</p>
+<p>{{ paragraph|truncatechars:30 }}</p>
+
+
+Exercise 2 - Using for construct
+----------------------------------------------------------------------------------------------
+
+Your favorite fruits:
+- Apple
+- Mango
+- Banana
+
+
+fruit_list.html ->
+
+<h1>Your favourite fruits: </h1>
+    <ul>
+        <h1>{{name}}, {{age}}</h1>
+        {% for fruit in fruits %}
+            <h3><li>{{ fruit }}</li></h3>
+        {% empty %}
+            <h3><li>No fruits available</li></h3>
+        {% endfor %}
+    </ul>
+
+views.py ->
+
+def fruit_list(request):
+    fruitList = ['Apples', 'Mangoes', 'Cherries', 'Bananas']
+    random.shuffle(fruitList)
+    context = {
+        'name' : 'Anil',
+        'age'  : str(random.randint(1, 30)),
+        'fruits' : fruitList
+    }
+    return render(request, 'firstapp/fruit_list.html', context) 
+
+urls.py ->
+
+path('fruits', views.fruit_list, name='fruits'), # 127.0.0.1:8000/fruits
+
+NOTE: DJango templates donot support while constructs
+
+Exercise 3 - Using for construct input forms and produce output
+----------------------------------------------------------------------------------------------
+
+input.html ->
+<h1>Enter Your Details</h1>
+    <form action="{% url 'result' %}" method="post">
+        {% csrf_token %}
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br><br>
+
+        <label for="age">Age:</label><br>
+        <input type="number" id="age" name="age"><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+output.html ->
+  <h1>Your name is {{ name }} and age is {{ age }}</h1>
+
+views.py ->
+def input_form(request):
+    return render(request, 'firstapp/input.html')
+
+def result(request):
+    print(request.method)
+    print(request.POST)
+    if request.method == 'POST': 
+        name = request.POST.get('name', 'Unknown')
+        age = request.POST.get('age', 'Unkown')
+        context = {
+            'name': name,
+            'age' : age
+        }
+        return render(request, 'firstapp/output.html', context)
+    else:
+        return render(request, 'firstapp/input.html')
+
+urls.py ->
+    path('input', views.input_form, name='input'), # 127.0.0.1:8000/input
+    path('result', views.result, name='result'), # 127.0.0.1:8000/result
+
+Exercise 4  
+----------------------------------------------------------------------------------------------
