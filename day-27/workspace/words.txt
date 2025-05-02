@@ -1,0 +1,2 @@
+apple,mango,cherry,banana,pineapple,tomato,onion,clove,ginger,coriander
+red,green,blue,yellow,cyan,magenta

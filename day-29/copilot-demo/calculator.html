@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .result {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple Calculator</h1>
+    <form id="calculatorForm">
+        <label for="num1">Number 1:</label>
+        <input type="number" id="num1" name="num1" required>
+        <br><br>
+        <label for="num2">Number 2:</label>
+        <input type="number" id="num2" name="num2" required>
+        <br><br>
+        <label>Operation:</label><br><br><br>
+        <input type="radio" id="add" name="operation" value="add" required>
+        <label for="add">Add</label><br>
+        <input type="radio" id="subtract" name="operation" value="subtract">
+        <label for="subtract">Subtract</label><br>
+        <input type="radio" id="multiply" name="operation" value="multiply">
+        <label for="multiply">Multiply</label><br>
+        <input type="radio" id="divide" name="operation" value="divide">
+        <label for="divide">Divide</label><br>
+        <input type="radio" id="sine" name="operation" value="sine">
+        <label for="sine">Sine</label><br>
+        <input type="radio" id="cosine" name="operation" value="cosine">
+        <label for="cosine">Cosine</label><br><br>
+        <button type="submit">Calculate</button>
+    </form>
+    <div class="result" id="result">Result: </div>
+
+    <script>
+        document.getElementById('calculatorForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            const operation = document.querySelector('input[name="operation"]:checked').value;
+            let result;
+
+            switch (operation) {
+                case 'add':
+                    result = num1 + num2;
+                    break;
+                case 'subtract':
+                    result = num1 - num2;
+                    break;
+                case 'multiply':
+                    result = num1 * num2;
+                    break;
+                case 'divide':
+                    result = num1 / num2;
+                    break;
+                case 'sine':
+                    result = Math.sin(num1);
+                    break;
+                case 'cosine':
+                    result = Math.cos(num1);
+                    break;
+                default:
+                    result = 'Invalid operation';
+            }
+
+            document.getElementById('result').textContent = `Result: ${result}`;
+        });
+    </script>
+</body>
+</html>
